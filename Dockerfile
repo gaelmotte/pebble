@@ -3,5 +3,5 @@ RUN mkdir -p /app/test/certs
 ADD ./pebble /app/
 ADD ./pebble-config.json /app/
 COPY ./test/certs /app/test/certs
-CMD ["/app/pebble", "-config", "/app/pebble-config.json", "-strict"]
+CMD ["/app/pebble", "-config", "/app/pebble-config.json", "-strict", "false"]
 EXPOSE 8080
