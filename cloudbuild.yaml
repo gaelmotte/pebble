@@ -5,7 +5,7 @@ steps:
     args: 
       - -c
       - |
-        pwd && ls -tlr && build ./cmd/pebble
+        pwd && ls -tlr && go version && go build ./cmd/pebble
         
 
   # Docker Build
