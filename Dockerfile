@@ -1,5 +1,6 @@
 FROM ubuntu:22.04
 RUN mkdir -p /app
 ADD ./pebble /app/
-CMD /app/pebble
-EXPOSE 14000
+ADD ./pebble-config.json /app/
+CMD ["/app/pebble", "-config", "/app/pebble-config.json", "-strict"]
+EXPOSE 8080
