@@ -406,7 +406,7 @@ func (ca *CAImpl) CompleteOrder(order *core.Order) {
 
 	// issue a certificate for the csr
 	csr := order.ParsedCSR
-	cert, err := ca.newCertificate(csr.DNSNames, csr.IPAddresses, csr.PublicKey, order.AccountID, order.NotBefore, order.NotAfter)
+	cert, err := ca.newCertificate(cappend(parsedCSR.DNSNames, parsedCSR.Subject.CommonName), csr.IPAddresses, csr.PublicKey, order.AccountID, order.NotBefore, order.NotAfter)
 	if err != nil {
 		ca.log.Printf("Error: unable to issue order: %s", err.Error())
 		return
