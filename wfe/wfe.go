@@ -1934,7 +1934,7 @@ func (wfe *WebFrontEndImpl) FinalizeOrder(
 	orderIPs = uniqueIPs(orderIPs)
 
 	// sort and deduplicate CSR SANs
-	csrDNSs := uniqueLowerNames(parsedCSR.DNSNames)
+	csrDNSs := uniqueLowerNames(append(parsedCSR.DNSNames, parsedCSR.Subject.CommonName))
 	csrIPs := uniqueIPs(parsedCSR.IPAddresses)
 
 	// Check that the CSR has the same number of names as the initial order contained
